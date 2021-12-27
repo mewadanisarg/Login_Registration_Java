@@ -5,7 +5,8 @@ import lombok.Setter;
 
 import java.util.Date;
 
-@Setter @Getter
+@Setter
+@Getter
 public class Benutzer {
 
     private String Id;
@@ -21,13 +22,6 @@ public class Benutzer {
 
     @Override
     public String toString() {
-        return "Benutzer{" +
-                "Id='" + Id + '\'' +
-                ", Email='" + Email + '\'' +
-                ", Nickname='" + Nickname + '\'' +
-                ", Registrierungsdatum=" + Registrierungsdatum +
-                ", LetzteAnmeldung=" + LetzteAnmeldung +
-                ", LetzteAktualisierung=" + LetzteAktualisierung +
-                '}';
+        return "Benutzer{" + "Id='" + Id + '\'' + ", Email='" + Email + '\'' + ", Nickname='" + Nickname + '\'' + ", Registrierungsdatum=" + Registrierungsdatum + ", LetzteAnmeldung=" + LetzteAnmeldung + ", LetzteAktualisierung=" + LetzteAktualisierung + '}';
     }
 }

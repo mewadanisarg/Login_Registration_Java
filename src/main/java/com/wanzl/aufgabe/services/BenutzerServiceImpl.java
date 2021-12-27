@@ -7,7 +7,7 @@ import com.wanzl.aufgabe.repositories.TokenRepo;
 import org.apache.commons.text.CharacterPredicates;
 import org.apache.commons.text.RandomStringGenerator;
 
-public class BenutzerServiceImpl implements BenutzerService{
+public class BenutzerServiceImpl implements BenutzerService {
     private BenutzerRepo benuterRepo;
     private PasswordRepo passwordRepo;
     private TokenRepo tokenRepo;
@@ -23,7 +23,7 @@ public class BenutzerServiceImpl implements BenutzerService{
     public Boolean isBenutzerValid(String anmeldename, String password) {
         Benutzer benutzer = benuterRepo.getBenutzer(anmeldename);
         String existingPassword = passwordRepo.getPassword(benutzer.getId());
-        if(existingPassword.equals(password)){
+        if (existingPassword.equals(password)) {
             return true;
         }
         return false;

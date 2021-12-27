@@ -5,11 +5,6 @@ import com.wanzl.aufgabe.repositories.BenutzerRepo;
 import com.wanzl.aufgabe.repositories.PasswordRepo;
 import org.apache.commons.text.RandomStringGenerator;
 
-import java.util.Random;
-import java.util.UUID;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 
 public class Registration implements IRegistrierung {
 
@@ -27,7 +22,7 @@ public class Registration implements IRegistrierung {
         Benutzer benutzer = new Benutzer(email);
         benutzer.setNickname(nickname);
         String password = passwort;
-        if(passwort == null) {
+        if (passwort == null) {
             password = createRandomPassword();
         }
 
@@ -37,27 +32,5 @@ public class Registration implements IRegistrierung {
 
     private String createRandomPassword() {
         return new RandomStringGenerator.Builder().withinRange(33, 45).build().generate(10);
-    }
-
-    public String createTocken() {
-        UUID uuid = UUID.randomUUID();
-        System.out.println(uuid);
-        return null;
-    }
-    public static class EmailValidator{
-        private final Pattern pattern;
-
-        private static final String EMAIL_REGEX = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-
-        public EmailValidator()
-        {
-            pattern = Pattern.compile(EMAIL_REGEX);
-        }
-        public boolean validate(final String email)
-        {
-            Matcher matcher = pattern.matcher(email);
-            return matcher.matches();
-        }
     }
 }
