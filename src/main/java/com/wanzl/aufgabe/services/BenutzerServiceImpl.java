@@ -13,7 +13,7 @@ public class BenutzerServiceImpl implements BenutzerService {
     private TokenRepo tokenRepo;
 
     public BenutzerServiceImpl(BenutzerRepo benuterRepo, PasswordRepo passwordRepo, TokenRepo tokenRepo) {
-
+        //Constructor
         this.benuterRepo = benuterRepo;
         this.passwordRepo = passwordRepo;
         this.tokenRepo = tokenRepo;
@@ -31,6 +31,7 @@ public class BenutzerServiceImpl implements BenutzerService {
 
     @Override
     public String createToken() {
+        // Generating Token of length 12
         return new RandomStringGenerator.Builder()
                 .withinRange('0', 'z')
                 .filteredBy(CharacterPredicates.LETTERS, CharacterPredicates.DIGITS)
